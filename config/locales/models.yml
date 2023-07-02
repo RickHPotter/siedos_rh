@@ -1,0 +1,93 @@
+pt-BR:
+  activerecord:
+    models:
+      employee:
+        one: 'Funcionário(a)'
+        other: 'Funcionários(as)'
+      job_role:
+        one: 'Cargo'
+        other: 'Cargos'
+      workspace:
+        one: 'Lotação'
+        other: 'Lotações'
+    attributes:
+      employee:
+        id: 'Matricula'
+        full_name: 'Nome Completo'
+        date_of_birth: 'Data de Nascimento'
+        origin_city: 'Município'
+        home_state: 'UF'
+        marital_status: 'Estado Civil'
+        sex: 'Sexo'
+        workspace: 'Lotação'
+        job_role: 'Cargo'
+      job_role:
+        id: 'Código do Cargo'
+        title: 'Nome do Cargo'
+      workspace:
+        id: 'Código da Lotação'
+        title: 'Nome da Lotação'
+    errors:
+      models:
+        employee:
+          attributes:
+            marital_status:
+              inclusion: "inválido"
+            sex:
+              inclusion: "deve ser masculino ou feminino"
+            job_role_id:
+              taken: "já está em uso dentro da Lotação escolhida"
+        job_role:
+          attributes:
+            title: "já está em uso"
+        workspace:
+          attributes:
+            title: "já está em uso"
+
+# EN
+
+en:
+  activerecord:
+    models:
+      employee:
+        one: 'Employee'
+        other: 'Employess'
+      job_role:
+        one: 'Job Role'
+        other: 'Job Roles'
+      workspace:
+        one: 'Workspace'
+        other: 'Workspaces'
+    attributes:
+      employee:
+        id: 'Id'
+        full_name: 'Full Name'
+        date_of_birth: 'Date of Birth'
+        origin_city: 'Origin City'
+        home_state: 'State'
+        marital_status: 'Marital Status'
+        sex: 'Sex'
+      job_role:
+        id: 'Role Id'
+        title: 'Job Role Name'
+      workspace:
+        id: 'Workspace Id'
+        title: 'Workspace Name'
+    
+    errors:
+      models:
+        employee:
+          attributes:
+            marital_status:
+              inclusion: "option is invalid"
+            sex:
+              inclusion: "must be masculine or feminine"
+            job_role_id:
+              taken: "already taken in chosen Workspace"
+        job_role:
+          attributes:
+            title: "already taken"
+        workspace:
+          attributes:
+            title: "already taken"
+

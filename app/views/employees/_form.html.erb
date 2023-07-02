@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col mx-auto col-10 col-md-8 col-lg-6">
+    <%= form_with(model: employee, local: true) do |form| %>
+
+      <%= render "shared/form/text_field",
+        form: form, model: employee, field: :full_name
+      %>
+
+      <%= render "shared/form/text_field",
+        form: form, model: employee, field: :id
+      %>
+
+      <div class="field">
+        <%= form.label :date_of_birth %>
+        <%= form.date_select :date_of_birth, id: :employee_date_of_birth %>
+      </div>
+
+      <%= render "shared/form/select",
+        form: form, model: employee, field: :origin_city, id: :origin_city, options: @cities
+      %>
+
+      <%= render "shared/form/select",
+        form: form, model: employee, field: :home_state, id: :home_state, options: @states
+      %>
+
+      <%= render "shared/form/select",
+        form: form, model: employee, field: :marital_status, id: :marital_status, options: @marital_statuses
+      %>
+
+      <%= render "shared/form/select",
+        form: form, model: employee, field: :sex, id: :sex, options: @sexes
+      %>
+
+      <%= render "shared/form/select",
+        form: form, model: employee, field: :workspace, id: :workspace_id, options: @workspaces
+      %>
+
+      <%= render "shared/form/select",
+        form: form, model: employee, field: :job_role, id: :job_role_id, options: @job_roles
+      %>
+
+      <br>
+
+      <div class="actions">
+        <%= form.submit action_text, class: "btn btn-primary" %>
+      </div>
+    <% end %>
+
+    <br>
+
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<tr>
+  <td><%= employee.full_name %></td>
+  <td><%= employee.id %></td>
+  <td><%= l(employee.date_of_birth) %></td>
+  <td><%= employee.origin_city%> - <%= employee.home_state %></td>
+  <td><%= t("employee.sexes.#{employee.sex}") %></td>
+  <td><%= employee.workspace.title %></td>
+  <td><%= employee.job_role.title %></td>
+  <td><%= link_to t('links.show'), employee %></td>
+  <td><%= link_to t('links.edit'), edit_employee_path(employee) %></td>
+  <td><%= link_to t('links.destroy'), employee, method: :delete, data:
+    { confirm: "#{t('links.confirm_delete')} #{employee.full_name}?" } %>
+  </td>
+</tr>
+

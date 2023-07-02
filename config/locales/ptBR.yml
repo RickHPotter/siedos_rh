@@ -1,0 +1,38 @@
+pt-BR:
+  welcome: 
+    title: "Recursos Humanos Siedos."
+    subtitle: "Dinheiro é importante."
+
+  links:
+    show: "Mostrar"
+    edit: "Editar"
+    destroy: "Deletar"
+    new: "Novo"
+    back: "Voltar"
+    confirm: "Tem certeza?"
+    confirm_delete: "Tem certeza que quer apagar"
+  
+  new:
+    employee: "Novo Funcionário"
+    job_role: "Novo Cargo"
+    workspace: "Nova Lotação"
+
+  edit:
+    employee: "Editando Funcionário"
+    job_role: "Editando Cargo"
+    workspace: "Editando Lotação"
+
+  errors:
+    too_young: 'proibida: 14 anos é o mínimo'
+    city_not_in_state: 'não pertence ao estado'
+
+  employee:
+    marital_statuses:
+      single: "Solteiro(a)"
+      married: "Casado(a)"
+      widow: "Viúvo(a)"
+
+    sexes:
+      masculine: "Masculino"
+      feminine: "Feminino"
+

@@ -1,0 +1,11 @@
+<h1><%= @search.model_name.human(count: 2) %></h1>
+
+<table class = "table table-hover">
+  <%= render 'employee_head' %>
+  <%= render @search %>
+</table>
+
+<br>
+
+<%= link_to t('new.employee'), new_employee_path, class: "btn btn-primary" %>
+

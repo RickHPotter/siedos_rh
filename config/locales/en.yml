@@ -1,0 +1,38 @@
+en:
+  welcome: 
+    title: "Siedos Human Resources."
+    subtitle: "Fake Until You Make It."
+
+  links:
+    show: "Show"
+    edit: "Edit"
+    destroy: "Delete"
+    new: "New"
+    back: "Back"
+    confirm: "Are you sure?"
+    confirm_delete: "Are you sure you want to delete"
+
+  new:
+    employee: "New Employee"
+    job_role: "New Job Role"
+    workspace: "New Workspace"
+
+  edit:
+    employee: "Editing Employee"
+    job_role: "Editing Job Role"
+    workspace: "Editing Workspace"
+
+  errors:
+    too_young: 'not allowed: 14 years of age is the minimum'
+    city_not_in_state: 'does not belong to state'
+
+  employee:
+    marital_statuses:
+      single: "Single"
+      married: "Married"
+      widow: "Widow"
+
+    sexes:
+      masculine: "Masculine"
+      feminine: "Feminine"
+

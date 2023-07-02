@@ -1,0 +1,16 @@
+<div class="form-group pt-2">
+  <%= form.label field %>
+
+  <% unless local_assigns[:textarea].nil? %>
+    <%= form.text_area field, class: "form-control" %>
+  <% else %>
+    <%= form.text_field field, class: "form-control" %>
+  <% end %>
+
+  <% model.errors[field].each do |message| %>
+    <div class="invalid-feedback my-1">
+      <small><%= "#{model.class.human_attribute_name(field)} #{message}." %></small>
+    </div>
+  <% end %>
+</div>
+

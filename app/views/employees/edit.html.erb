@@ -1,0 +1,15 @@
+<h1 class="display-5 pt-3 text-dark text-center"><%= t('edit.employee') %></h1>
+
+<div class="container d-flex align-items-center justify-content-center">
+  <div class="container">
+    <%= render 'form', employee: @employee, action_text: t('edit.employee') %>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to t('links.show'), @employee, class: "btn btn-secondary" %> |
+        <%= link_to t('links.back'), employees_path, class: "btn btn-dark" %>
+      </div>
+    </div>
+  </div>
+</div>
+

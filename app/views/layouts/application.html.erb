@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RH Challenge</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class = "py-3">
+      <%= render "shared/menu" %>
+    </div>
+
+    <main class="container-fluid p-5">
+      <%= yield %>
+    </main>
+  </body>
+</html>
+

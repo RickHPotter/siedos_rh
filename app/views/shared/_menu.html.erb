@@ -1,0 +1,28 @@
+<ul class="nav navbar-expand-md navbar-dark fixed-top bg-dark justify-content-end">
+  <div class="container-fluid">
+    <div class="d-flex align-items-center pt-2">
+      <%= link_to "Siedos RH", root_path, class: "h3 text-white text-decoration-none" %>
+    </div>
+  </div>
+
+  <%= form_tag search_employee_path, class: "navbar-form navbar-right", method: :get do %>
+    <div class = "form-group">
+      <%= text_field_tag :name, @name, class: "form-control" %>
+      <%= button_to "Seach", nil, class: "btn btn-info" %>
+    </div>
+  <% end %>
+
+  <li class="nav-item">
+    <p>
+    <%= locale_link('en') do %>
+      <%= image_tag "https://img.freepik.com/premium-vector/vector-image-british-flag-england-sign-kingdom-great-britain-lovely-london-badge_213497-1010.jpg?w=826", size: "25x15"  %>
+    <% end %>
+    </p>
+  </li>
+  <li class="nav-item">
+    <%= locale_link('pt-BR') do %>
+      <%= image_tag "https://img.freepik.com/free-vector/illustration-brazil-flag_53876-27017.jpg?w=826&t=st=1687812388~exp=1687812988~hmac=890707394a5f404cb7e2e0a9d2cbe96c1a8c6aa1969e6e1a87a99aef76695ee5", size: "25x15"  %>
+    <% end %>
+  </li>
+</ul>
+
