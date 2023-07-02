@@ -5,10 +5,20 @@
     </div>
   </div>
 
-  <%= form_tag search_employee_path, class: "navbar-form navbar-right", method: :get do %>
-    <div class = "form-group">
-      <%= text_field_tag :name, @name, class: "form-control" %>
-      <%= button_to "Seach", nil, class: "btn btn-info" %>
+
+  <%= form_tag(search_employee_path, method: :get, class: "navbar-form navbar-right") do %>
+
+    <!--TODO: No Model should be in a View. Sort it later. -->
+
+    <div class="form-group d-inline-flex gap-2 pt-2">
+      <% sex_opt = Employee::SEXES.map { |sex| [I18n.t("employee.sexes.#{sex}"), sex] } %>
+  <td><%=  %></td>
+      <%= select_tag(:sex, options_for_select(sex_opt), prompt: 'Sex', class: 'form-control') %>
+      <%= select_tag(:workspace_id, options_for_select(Workspace.all.map { |w| [w.title, w.id] }), prompt: 'Workspace', class: 'form-control') %>
+      <%= select_tag(:job_role_id, options_for_select(JobRole.all.map { |j| [j.title, j.id] }), prompt: 'Job Role', class: 'form-control') %>
+
+      <%= text_field_tag(:id_name, @id_name, class: "form-control") %>
+      <%= submit_tag("Search", class: "btn btn-info") %>
     </div>
   <% end %>
 

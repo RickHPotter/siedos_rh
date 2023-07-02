@@ -10,13 +10,12 @@ class EmployeesController < ApplicationController
   end
 
   def search 
-    sex = params[:sex]
-    workspace_id = params[:workspace_id]
-    job_role_id = params[:job_role_id]
-    @search = Employee.filter_by_id_or_name(name)
-      .filter_by_sex(sex)
-      .filter_by_workspace_id(workspace_id)
-      .filter_by_job_role_id(job_role_id)
+    conditions = { }
+    conditions[:id_name] = params[:id_name]
+    conditions[:sex] = params[:sex]
+    conditions[:workspace_id] = params[:workspace_id]
+    conditions[:job_role_id] = params[:job_role_id]
+    @employees = Employee.filter_by(conditions)
   end
 
   # GET /employees/1 or /employees/1.json

@@ -28,12 +28,18 @@ class Employee < ApplicationRecord
   validates :job_role_id, uniqueness: { scope: :workspace_id }
 
   # SEARCH
-  scope :filter_by_id_or_name, -> (filter) {
-    where("id = ? or full_name LIKE ", filter, "%#{filter}%")
+  scope :filter_by, -> (conditions) {
+    filter_by_id_or_name(conditions[:id_name])
+      .filter_by_sex(conditions[:sex])
+      .filter_by_workspace_id(conditions[:workspace_id])
+      .filter_by_job_role_id(conditions[:job_role_id])
   }
-  scope :filter_by_sex, -> (sex) { where sex: sex }
-  scope :filter_by_workspace_id, -> (id) { where workspace_id: id }
-  scope :filter_by_job_role_id, -> (id) { where job_role_id: id }
+  scope :filter_by_id_or_name, -> (id_name) {
+    where("id = ? or lower(full_name) LIKE ?", id_name.to_i, "%#{id_name.downcase}%")
+  }
+  scope :filter_by_sex, -> (sex) { where sex: sex if sex.present? }
+  scope :filter_by_workspace_id, -> (id) { where workspace_id: id if id.present? }
+  scope :filter_by_job_role_id, -> (id) { where job_role_id: id if id.present? }
 
   def cities
     # TODO: look for cookies first

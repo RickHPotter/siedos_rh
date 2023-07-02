@@ -51,7 +51,7 @@ en:
     models:
       employee:
         one: 'Employee'
-        other: 'Employess'
+        other: 'Employees'
       job_role:
         one: 'Job Role'
         other: 'Job Roles'

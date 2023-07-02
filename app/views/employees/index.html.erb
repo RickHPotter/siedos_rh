@@ -4,7 +4,7 @@
   </p>
 <% end %>
 
-<h1><%= @employees.model_name.human(count: 2) %></h1>
+<h1><%= @employees.model_name.human(count: @employees.count) %></h1>
 
 <table class = "table table-hover">
   <%= render 'employee_head' %>
