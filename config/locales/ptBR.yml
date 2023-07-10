@@ -1,30 +1,51 @@
 pt-BR:
   welcome: 
-    title: "Recursos Humanos Siedos."
-    subtitle: "Dinheiro é importante."
+    title: "RH Siedos"
 
   links:
     show: "Mostrar"
+    search: "Pesquisar"
+    filter: "Filtrar"
     edit: "Editar"
     destroy: "Deletar"
     new: "Novo"
     back: "Voltar"
     confirm: "Tem certeza?"
     confirm_delete: "Tem certeza que quer apagar"
+    actions: "Ações"
   
   new:
-    employee: "Novo Funcionário"
-    job_role: "Novo Cargo"
-    workspace: "Nova Lotação"
+    employee: "Cadastrar Pessoa"
+    job_role: "Cadastrar Cargo"
+    workspace: "Cadastrar Lotação"
+    contact: "Cadastrar Contato"
+
+  show:
+    employee: "Mostrar Pessoa"
+    job_role: "Mostrar Cargo"
+    workspace: "Mostrar Lotação"
+    contact: "Mostrar Contato"
+
+  create:
+    employee: "Criar Pessoa"
+    job_role: "Criar Cargo"
+    workspace: "Criar Lotação"
+    contact: "Criar Contato"
 
   edit:
-    employee: "Editando Funcionário"
-    job_role: "Editando Cargo"
-    workspace: "Editando Lotação"
+    employee: "Editar Pessoa"
+    job_role: "Editar Cargo"
+    workspace: "Editar Lotação"
+
+  update:
+    employee: "Atualizar Pessoa"
+    job_role: "Atualizar Cargo"
+    workspace: "Atualizar Lotação"
 
   errors:
     too_young: 'proibida: 14 anos é o mínimo'
     city_not_in_state: 'não pertence ao estado'
+    invalid: 'inválido'
 
   employee:
     marital_statuses:
@@ -35,4 +56,23 @@ pt-BR:
     sexes:
       masculine: "Masculino"
       feminine: "Feminino"
+
+    notice:
+      created: "Pessoa cadastrada com sucesso." 
+      updated: "Pessoa atualizada com sucesso." 
+      destroyed: "Pessoa deletada com sucesso." 
+
+    select:
+      id: "Digite a Matrícula..."
+      name: "Digite o Nome..."
+      origin_city: "Selecione a Cidade de Nascimento..."
+      home_state: "Selecione o Estado de Nascimento..."
+      marital_status: "Selecione o Estado Civil..."
+      sex: "Selecione o Sexo..."
+      workspace: "Selecione a Lotação..."
+      job_role: "Selecione o Cargo..."
+
+  contact:
+    notice:
+      no_contact: 'Sem contatos até agora.'
 

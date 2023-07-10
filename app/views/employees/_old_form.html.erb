@@ -3,17 +3,16 @@
     <%= form_with(model: employee, local: true) do |form| %>
 
       <%= render "shared/form/text_field",
+        form: form, model: employee, field: :id
+      %>
+
+      <%= render "shared/form/text_field",
         form: form, model: employee, field: :full_name
       %>
 
       <%= render "shared/form/text_field",
-        form: form, model: employee, field: :id
+        form: form, model: employee, field: :date_of_birth, type: 'date'
       %>
-
-      <div class="field">
-        <%= form.label :date_of_birth %>
-        <%= form.date_select :date_of_birth, id: :employee_date_of_birth %>
-      </div>
 
       <%= render "shared/form/select",
         form: form, model: employee, field: :origin_city, id: :origin_city, options: @cities

@@ -1,14 +1,8 @@
-<h1 class="display-5 pt-3 text-dark text-center"><%= t('new.employee') %></h1>
+<h1 class="display-4 py-3 text-dark text-center"><%= t('new.employee') %></h1>
 
-<div class="container d-flex align-items-center justify-content-center">
+<div class="d-flex align-items-center justify-content-center">
   <div class="container">
-    <%= render 'form', employee: @employee, action_text: t('new.employee') %>
-
-    <div class="row">
-      <div class="col">
-        <%= link_to t('links.back'), employees_path, class: "btn btn-dark" %>
-      </div>
-    </div>
+    <%= render 'form', employee: @employee, action_text: t('create.employee') %>
   </div>
 </div>
 

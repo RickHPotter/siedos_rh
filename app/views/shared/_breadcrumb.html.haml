@@ -1,0 +1,14 @@
+.row.align-items-center.justify-content-start.pb-2
+  %nav.container{ style: "--bs-breadcrumb-divider: '>';" }
+    %ol.breadcrumb.col.p-3.border.border-2.border-dark{ style: "background-color: silver;" }
+      - breadcrumbs.each do |crumb|
+        - if crumb != breadcrumbs.last
+          %li.breadcrumb-item
+            - if crumb.link?
+              = link_to crumb.name, crumb.path
+            - else
+              %span= crumb.name
+        - else
+          %span.breadcrumb-item.active= crumb.name
+
+

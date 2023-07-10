@@ -10,7 +10,22 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
+//= require cocoon
 //= require rails-ujs
 //= require turbolinks
-//= require cocoon
 //= require_tree .
+
+$(document).ready(function() {
+  function toggleNoContactsMessage() {
+    const hasContacts = $('#contacts .nested-fields').length > 0;
+    $('#no-contacts-message').toggle(!hasContacts);
+  }
+
+  toggleNoContactsMessage();
+
+  $('#contacts').on('cocoon:after-insert', function() {
+    toggleNoContactsMessage();
+  });
+});
+

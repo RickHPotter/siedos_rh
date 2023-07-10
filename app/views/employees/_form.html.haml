@@ -1,0 +1,54 @@
+.row.border.border-2.border-dark
+  = simple_form_for @employee, defaults: { wrapper: false } do |f|
+    .row.py-3
+      .col
+        = f.input :id
+      .col
+        = f.input :full_name
+      .col
+        = f.input :date_of_birth, type: 'date', html5: true
+
+    .row.py-3
+      .col
+        = sf_select f, :origin_city, @cities
+      .col
+        = sf_select f, :home_state, @states
+      .col
+        = sf_select f, :marital_status, @marital_statuses
+      .col
+        = sf_select f, :sex, @sexes
+
+    .row.py-3
+      .col
+        = f.association :workspace, collection: @workspaces
+      .col
+        = f.association :job_role, collection: @job_roles
+      
+
+    .d-flex.py-3
+      = icon('fa-regular fa-address-book', '2xl', class: 'align-self-center pe-2')
+      %span.display-6 Contacts
+    #contacts
+      .row.py-3.border.border-2.border-dark.mx-auto#contacts-list
+        - if @employee.contacts.empty?
+          %span#no-contacts-message.text-center.text-muted=I18n.t('contact.notice.no_contact')
+        = f.simple_fields_for :contacts do |contact|
+          = render 'contact_fields', f: contact
+      .links.py-3
+        = link_to_add_association(f, :contacts,
+          class: 'btn btn-outline-dark',
+          style: 'background-color: #77dd77;',
+          data: { association_insertion_method: "append", association_insertion_node: "#contacts-list"}) do
+          = icon('fa-regular fa-plus', 'xl')
+          = I18n.t('new.contact')
+    .d-flex.justify-content-between
+      .py-3
+        = link_to t('links.show'), @employee, 
+          class: 'btn btn-outline-dark',
+          style: 'background-color: #ffc107;'
+
+      .py-3
+        = f.submit action_text, 
+          class: 'btn btn-outline-dark',
+          style: 'background-color: #519edf;'
+

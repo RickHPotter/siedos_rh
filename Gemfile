@@ -27,34 +27,31 @@ gem 'loofah', '~>2.19.1'
 gem 'pg'
 
 # frontend
-# gem 'bootstrap-sass'
 gem 'bootstrap', '~> 5.3.0.alpha3'
 gem 'bootstrap-will_paginate'
-gem 'font-awesome-rails'
-gem 'haml'
+gem "font-awesome-sass", "~> 6.4.0"
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
+gem 'haml'
 gem 'cocoon', '~> 1.2'
-gem 'foreman', github: 'ddollar/foreman'
 gem 'simple_form'
-# not using nested_form in favour of cocoon
-# gem 'nested_form'
 gem 'rails-i18n', '~> 5.1'
+gem 'pagy'
 
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 
+gem 'faker'
+
 group :development, :test do
   gem 'byebug'
-  gem 'faker'
   gem 'pry-rails'
   gem 'rubocop'
   gem 'reek'
 end
 
 group :development do
-  gem "rails_live_reload"
   gem 'better_errors'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
@@ -74,7 +71,7 @@ group :test do
   gem 'rspec-mocks'
   gem 'guard'
   gem 'guard-rspec'
-  gem 'simplecov'
+  gem 'simplecov', require: false
   gem 'shoulda-matchers', '~> 3.0'
 end
 

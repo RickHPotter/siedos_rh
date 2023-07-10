@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20230627202508) do
+ActiveRecord::Schema.define(version: 20230705131842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "phone"
+    t.string "mobile_phone"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "employee_id"
+    t.index ["email"], name: "index_contacts_on_email", unique: true
+    t.index ["employee_id"], name: "index_contacts_on_employee_id"
+  end
 
   create_table "employees", force: :cascade do |t|
     t.string "full_name"
@@ -42,6 +53,7 @@ ActiveRecord::Schema.define(version: 20230627202508) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "contacts", "employees"
   add_foreign_key "employees", "job_roles"
   add_foreign_key "employees", "workspaces"
 end

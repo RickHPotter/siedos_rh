@@ -1,38 +1,28 @@
-<ul class="nav navbar-expand-md navbar-dark fixed-top bg-dark justify-content-end">
+<ul class="nav navbar-expand-md navbar-dark bg-dark d-flex justify-content-end">
   <div class="container-fluid">
     <div class="d-flex align-items-center pt-2">
-      <%= link_to "Siedos RH", root_path, class: "h3 text-white text-decoration-none" %>
+      <%= link_to I18n.t('welcome.title'), root_path, class: "hero-text" %>
     </div>
   </div>
 
-
-  <%= form_tag(search_employee_path, method: :get, class: "navbar-form navbar-right") do %>
-
-    <!--TODO: No Model should be in a View. Sort it later. -->
-
-    <div class="form-group d-inline-flex gap-2 pt-2">
-      <% sex_opt = Employee::SEXES.map { |sex| [I18n.t("employee.sexes.#{sex}"), sex] } %>
-  <td><%=  %></td>
-      <%= select_tag(:sex, options_for_select(sex_opt), prompt: 'Sex', class: 'form-control') %>
-      <%= select_tag(:workspace_id, options_for_select(Workspace.all.map { |w| [w.title, w.id] }), prompt: 'Workspace', class: 'form-control') %>
-      <%= select_tag(:job_role_id, options_for_select(JobRole.all.map { |j| [j.title, j.id] }), prompt: 'Job Role', class: 'form-control') %>
-
-      <%= text_field_tag(:id_name, @id_name, class: "form-control") %>
-      <%= submit_tag("Search", class: "btn btn-info") %>
-    </div>
-  <% end %>
-
-  <li class="nav-item">
-    <p>
-    <%= locale_link('en') do %>
-      <%= image_tag "https://img.freepik.com/premium-vector/vector-image-british-flag-england-sign-kingdom-great-britain-lovely-london-badge_213497-1010.jpg?w=826", size: "25x15"  %>
-    <% end %>
-    </p>
-  </li>
-  <li class="nav-item">
-    <%= locale_link('pt-BR') do %>
-      <%= image_tag "https://img.freepik.com/free-vector/illustration-brazil-flag_53876-27017.jpg?w=826&t=st=1687812388~exp=1687812988~hmac=890707394a5f404cb7e2e0a9d2cbe96c1a8c6aa1969e6e1a87a99aef76695ee5", size: "25x15"  %>
-    <% end %>
-  </li>
+    <li class="nav-item align-self-center">
+      <%= locale_link('pt-BR') do %>
+        <%= image_tag "https://cdn.icon-icons.com/icons2/1694/PNG/512/brbrazilflag_111698.png", size: "25x15"  %>
+      <% end %>
+    </li>
+    <li class="nav-item align-self-center">
+      <%= locale_link('en') do %>
+        <%= image_tag "https://static.vecteezy.com/system/resources/previews/005/416/914/original/flag-of-united-kingdom-illustration-free-vector.jpg", size: "25x15"  %>
+      <% end %>
+    </li>
 </ul>
+
+<style>
+  .hero-text {
+    font-size: 1.6em;
+    text-decoration: none;
+    color: white;
+    margin: 0.2em 0;
+  }
+</style>
 

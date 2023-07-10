@@ -2,8 +2,8 @@ pt-BR:
   activerecord:
     models:
       employee:
-        one: 'Funcionário(a)'
-        other: 'Funcionários(as)'
+        one: 'Pessoa'
+        other: 'Pessoas'
       job_role:
         one: 'Cargo'
         other: 'Cargos'
@@ -12,15 +12,17 @@ pt-BR:
         other: 'Lotações'
     attributes:
       employee:
-        id: 'Matricula'
-        full_name: 'Nome Completo'
+        id: 'Matrícula'
+        full_name: 'Nome'
         date_of_birth: 'Data de Nascimento'
-        origin_city: 'Município'
-        home_state: 'UF'
+        origin_city: 'Município de Nascimento'
+        home_state: 'Estado de Nascimento'
         marital_status: 'Estado Civil'
         sex: 'Sexo'
         workspace: 'Lotação'
         job_role: 'Cargo'
+        workspace_id: 'Lotação'
+        job_role_id: 'Cargo'
       job_role:
         id: 'Código do Cargo'
         title: 'Nome do Cargo'
@@ -31,6 +33,10 @@ pt-BR:
       models:
         employee:
           attributes:
+            origin_city: 
+              inclusion: "pendente"
+            home_state: 
+              inclusion: "pendente"
             marital_status:
               inclusion: "inválido"
             sex:
@@ -64,9 +70,13 @@ en:
         full_name: 'Full Name'
         date_of_birth: 'Date of Birth'
         origin_city: 'Origin City'
-        home_state: 'State'
+        home_state: 'Home State'
         marital_status: 'Marital Status'
         sex: 'Sex'
+        workspace: 'Workspace'
+        job_role: 'Job Role'
+        workspace_id: 'Workspace'
+        job_role_id: 'Job Role'
       job_role:
         id: 'Role Id'
         title: 'Job Role Name'
@@ -78,6 +88,10 @@ en:
       models:
         employee:
           attributes:
+            origin_city: 
+              inclusion: "pending"
+            home_state: 
+              inclusion: "pending"
             marital_status:
               inclusion: "option is invalid"
             sex:

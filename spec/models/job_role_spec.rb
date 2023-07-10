@@ -1,11 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe JobRole do
-  subject {
-    described_class.new(
-      title: "This name is 31 characters long",
-    )
-  }
+  let!(:subject) { FactoryBot.create(:job_role) }
+  let!(:helper) { FactoryBot.create(:job_role) }
 
   include_examples "a valid model"
 end

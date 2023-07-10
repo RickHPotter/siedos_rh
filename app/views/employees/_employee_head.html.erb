@@ -1,16 +1,12 @@
 <thead>
-  <tr>
+  <tr class="text-center">
     <th><%= @employees.human_attribute_name(:full_name) %></th>
     <th><%= @employees.human_attribute_name(:id) %></th>
     <th><%= @employees.human_attribute_name(:date_of_birth) %></th>
-    <th>
-      <%= @employees.human_attribute_name(:origin_city) %> -
-      <%= @employees.human_attribute_name(:home_state) %>
-    </th>
     <th><%= @employees.human_attribute_name(:sex) %></th>
     <th><%= @employees.human_attribute_name(:workspace) %></th>
     <th><%= @employees.human_attribute_name(:job_role) %></th>
-    <th colspan="3"></th>
+    <th colspan="3"><%= t('links.actions') %></th>
   </tr>
 </thead>
 

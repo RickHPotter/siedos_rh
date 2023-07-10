@@ -1,0 +1,41 @@
+= form_tag(search_employee_path, method: :get, class: 'pb-3') do
+  %fieldset.border.border-2.border-dark.p-3
+    %legend.float-none.w-auto.px-4=t('links.search')
+    .row.justify-content-center.py-4
+      .col-10
+        = text_field_tag(:id_name, params[:id_name],
+          class: 'form-control border-dark', placeholder: "#{I18n.t('links.search')}...")
+    .row.justify-content-center.py-4
+      .col-2
+        %span=I18n.t('activerecord.attributes.employee.sex')
+        %hr
+        .form-check.pb-1
+          = radio_button_tag(:sex, 'masculine', params[:sex] == 'masculine',
+            class: 'form-check-input border-dark')
+          %label.form-check-label{ for: 'sex_masculine' }=I18n.t('employee.sexes.masculine')
+        .form-check
+          = radio_button_tag(:sex, 'feminine', params[:sex] == 'feminine',
+            class: 'form-check-input border-dark')
+          %label.form-check-label{ for: 'sex_feminine' }=I18n.t('employee.sexes.feminine')
+      .col-4
+        %p=I18n.t('activerecord.attributes.employee.workspace')
+        %hr
+        = select_tag(:workspace_id, options_for_select(@workspaces, params[:workspace_id]),
+          prompt: I18n.t('employee.select.workspace'), class: 'form-select border-dark')
+      .col-4
+        %p=I18n.t('activerecord.attributes.employee.job_role')
+        %hr
+        = select_tag(:job_role_id, options_for_select(@job_roles, params[:job_role_id]),
+          prompt: I18n.t('employee.select.job_role'), class: 'form-select border-dark')
+
+    .row.justify-content-center.py-4
+      .col-10.d-flex.justify-content-between
+        = link_to new_employee_path, class: "btn btn-outline-dark",
+          style: 'background-color: #77dd77;' do
+          = icon('fa-regular fa-plus', 'xl')
+          = t('new.employee')
+        = button_tag(type: 'submit', class: "btn btn-outline-dark",
+          style: 'background-color: #8BC6FC;', id: "search_button") do
+          = icon('fa-solid fa-magnifying-glass', 'xl')
+          = t('links.filter')
+

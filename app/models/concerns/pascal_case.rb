@@ -17,6 +17,5 @@ module PascalCase
       field = field.gsub(/([_\&\/\\-])/) { ' ' + $1 + ' ' }.split.map(&:capitalize).join(' ')
     end
   end
-
 end
 

@@ -1,30 +1,51 @@
 en:
   welcome: 
-    title: "Siedos Human Resources."
-    subtitle: "Fake Until You Make It."
+    title: "Siedos Human Resources"
 
   links:
     show: "Show"
+    search: "Search"
+    filter: "Filter"
     edit: "Edit"
     destroy: "Delete"
     new: "New"
     back: "Back"
     confirm: "Are you sure?"
     confirm_delete: "Are you sure you want to delete"
+    actions: "Actions"
 
   new:
     employee: "New Employee"
     job_role: "New Job Role"
     workspace: "New Workspace"
+    contact: "New Contact"
+
+  show:
+    employee: "Show Employee"
+    job_role: "Show Job Role"
+    workspace: "Show Workspace"
+    contact: "Show Contact"
+
+  create:
+    employee: "Create Employee"
+    job_role: "Create Job Role"
+    workspace: "Create Workspace"
+    contact: "Create Contact"
 
   edit:
-    employee: "Editing Employee"
-    job_role: "Editing Job Role"
-    workspace: "Editing Workspace"
+    employee: "Edit Employee"
+    job_role: "Edit Job Role"
+    workspace: "Edit Workspace"
+
+  update:
+    employee: "Update Employee"
+    job_role: "Update Job Role"
+    workspace: "Update Workspace"
 
   errors:
     too_young: 'not allowed: 14 years of age is the minimum'
     city_not_in_state: 'does not belong to state'
+    invalid: 'invalid'
 
   employee:
     marital_statuses:
@@ -35,4 +56,23 @@ en:
     sexes:
       masculine: "Masculine"
       feminine: "Feminine"
+
+    notice:
+      created: "Employee created successfully." 
+      updated: "Employee updated successfully." 
+      destroyed: "Employee destroyed successfully" 
+
+    select:
+      id: "Type the Id..."
+      name: "Type the name..."
+      origin_city: "Select Origin City..."
+      home_state: "Select Home State..."
+      marital_status: "Select Marital Status..."
+      sex: "Select Sex..."
+      workspace: "Select the Workspace..."
+      job_role: "Select the Job Role..."
+
+  contact:
+    notice:
+      no_contact: 'No contacts added so far.'
 

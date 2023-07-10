@@ -1,10 +1,11 @@
 <div class="form-group pt-2">
   <%= form.label field %>
 
-  <% unless local_assigns[:textarea].nil? %>
+  <% if local_assigns[:text_area].present? %>
     <%= form.text_area field, class: "form-control" %>
   <% else %>
-    <%= form.text_field field, class: "form-control" %>
+    <% type = 'text' if local_assigns[:type].nil? %>
+    <%= form.text_field field, class: "form-control", type: type %>
   <% end %>
 
   <% model.errors[field].each do |message| %>

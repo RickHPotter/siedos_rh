@@ -1,11 +1,15 @@
-<h1><%= @employees.model_name.human(count: @employees.count) %></h1>
+<%= render 'shared/employee/search_box' %>
 
-<table class = "table table-hover">
-  <%= render 'employee_head' %>
-  <%= render @employees %>
-</table>
+<div class="pt-3">
+  <div class="border border-2 border-dark">
+    <table class = "table table-striped table-bordered table-hover">
+      <%= render 'employee_head' %>
+      <tbody class="table-group-divider">
+        <%= render @employees %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 <br>
-
-<%= link_to t('new.employee'), new_employee_path, class: "btn btn-primary" %>
 

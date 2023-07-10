@@ -1,0 +1,50 @@
+- if notice.present?
+  %p#notice.alert.alert-success.pt-5
+    = notice
+%h1.display-4.py-3.text-dark.text-center=t('show.employee')
+
+.d-flex.align-items-center.justify-content-center
+  .container
+    .row.border.border-2.border-dark
+      = simple_form_for @employee, defaults: { wrapper: false } do |f|
+        .row.py-3
+          .col
+            = f.input :id, disabled: true
+          .col
+            = f.input :full_name, disabled: true
+          .col
+            = f.input :date_of_birth, type: 'date', html5: true, disabled: true
+
+        .row.py-3
+          .col
+            = f.input :origin_city, disabled: true
+          .col
+            = f.input :home_state, disabled: true
+          .col
+            = f.input :marital_status_label, disabled: true
+          .col
+            = f.input :sex_label, disabled: true
+
+        .row.py-3
+          .col
+            = f.input :workspace, disabled: true, input_html: { value: f.object.workspace.title }
+          .col
+            = f.input :job_role, disabled: true, input_html: { value: f.object.job_role.title }
+          
+
+        .d-flex.py-3
+          = icon('fa-regular fa-address-book', '2xl', class: 'align-self-center pe-2')
+          %span.display-6 Contacts
+        #contacts
+          .row.py-3.border.border-2.border-dark.mx-auto#contacts-list
+            - if @employee.contacts.empty?
+              %span#no-contacts-message.text-center.text-muted=I18n.t('contact.notice.no_contact')
+            = f.simple_fields_for :contacts do |contact|
+              = render 'contact_fields', f: contact, disabled: true
+
+        .d-flex.justify-content-between
+          .py-3
+            = link_to t('links.back'), employees_path, 
+              class: 'btn btn-outline-dark',
+              style: 'background-color: #ffc107;'
+

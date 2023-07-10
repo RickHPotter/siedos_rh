@@ -1,4 +1,9 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+if ENV['RAILS_ENV'] == 'test'
+  require 'simplecov'
+  SimpleCov.start 'rails'
+end
+
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
@@ -33,6 +38,7 @@ end
 RSpec.configure do |config|
   config.include ModelHelpers
   config.include SharedModelSpecs
+  config.include CapybaraHelpers
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 

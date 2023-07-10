@@ -1,3 +1,4 @@
+# Job Role model
 class JobRole < ApplicationRecord
   include PascalCase
 

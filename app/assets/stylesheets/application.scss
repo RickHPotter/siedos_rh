@@ -14,25 +14,49 @@
  */
 
 @import "bootstrap";
+@import "font-awesome";
 
-.field_with_errors > input, .field_with_errors + select,
-.field_with_errors > textarea
-{ /* .form-control.is-invalid bootstrap */
-  border-color: #dc3545;
-  padding-right: calc(1.5em + 0.75rem);
-}
-
-.invalid-feedback {
+::-webkit-scrollbar {
   display: none;
-  width: 100%;
-  margin-top: 0.25rem;
-  font-size: .875em;
-  color: #dc3545;
 }
 
-.field_with_errors + .invalid-feedback, select + .invalid-feedback,
-.invalid-feedback + .invalid-feedback
-{
-  display: block;
+.form-control {
+  border: var(--bs-border-width) solid var(--bs-dark);
+}
+
+.was-validated .form-control:valid, .form-control.is-valid {
+  border-color: var(--bs-form-valid-border-color) !important;
+}
+
+.table {
+  --bs-table-hover-color: white;
+  --bs-table-hover-bg: black;
+  margin-bottom: 0;
+}
+
+// pagy
+.pagy-nav.pagination {
+  @extend .justify-content-center;
+  position: relative;
+  margin: 60px 0 40px;
+
+  .prev, .next, .page {
+    @extend .btn-outline-dark;
+    padding: 0 0.6em;
+  }
+
+  .prev,
+  .next {
+    font-family: FontAwesome;
+    font-size: 1.25rem;
+    line-height: 1.3rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+
+    &.disabled {
+      color: gray;
+    }
+  }
+
 }
 

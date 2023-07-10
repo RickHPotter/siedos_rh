@@ -1,21 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Employee do
-  let(:job_role) { JobRole.create(title: "Ruby Developer") }
-  let(:workspace) { Workspace.create(title: "Rapidash") }
-
-  subject {
-    described_class.new(
-      full_name: "This name is 31 characters long",
-      date_of_birth: Date.today - 17.years,
-      origin_city: "Rio Branco",
-      home_state: "AC",
-      marital_status: "single",
-      sex: "masculine",
-      workspace_id: workspace.id,
-      job_role_id: job_role.id
-    )
-  }
+  let!(:job_roles) { FactoryBot.create_list(:job_role, 2) }
+  let!(:workspaces) { FactoryBot.create_list(:workspace, 2) }
+  let!(:subject) { FactoryBot.create(:employee) }
+  let!(:helper) { FactoryBot.create(:employee) }
 
   # Best-Case-Scenario
   it "is valid with valid attributes" do
@@ -30,7 +19,7 @@ RSpec.describe Employee do
   end
 
   it "validates length of full_name (8 .. 36)" do
-    validate_length(subject, :full_name, 8, 36)
+    validate_length(subject, :full_name, [8, 36])
   end
 
   it "is not valid with a date_of_birth of someone's who's under 14" do
@@ -69,16 +58,19 @@ RSpec.describe Employee do
   end
 
   it "validates uniqueness of job_role_id within the scope of workspace_id" do
-    opts = { :job_role_id => job_role.id, :workspace_id => workspace.id }
-    unique(subject, [opts])
+    opts = { }
+    opts[:job_role_id] = subject.job_role_id
+    opts[:workspace_id] = subject.workspace_id
+    unique(subject, helper, opts)
   end
 
   # model specs (not validations)
 
   context "full_name is not PascalCase" do
     it "becomes PascalCase" do
+      subject.full_name = 'a pascal case name'
       subject.save
-      expect(subject.full_name).to eq("This Name Is 31 Characters Long")
+      expect(subject.full_name).to eq("A Pascal Case Name")
     end
   end
 

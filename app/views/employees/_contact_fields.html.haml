@@ -1,0 +1,11 @@
+.nested-fields.col-4.new-contact
+  .col.py-2
+    - disabled = false if disabled.nil?
+    - unless disabled
+      = link_to_remove_association(f,
+        class: 'text-danger text-decoration-none pt-1') do
+        = icon('fa-regular fa-trash-can', 'xl')
+    = f.input :phone, type: 'tel', disabled: disabled, input_html: { class: 'border-dark' }
+    = f.input :mobile_phone, type: 'tel', disabled: disabled, input_html: { class: 'border-dark' }
+    = f.input :email, type: 'email', disabled: disabled, input_html: { class: 'border-dark col-11' }
+
