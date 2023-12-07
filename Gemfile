@@ -1,5 +1,7 @@
 # ruby=2.4.2
-# ruby-gemset=rh_challenge
+# ruby-gemset=siedos_rh
+
+ruby File.read('.ruby-version').strip
 
 source 'https://rubygems.org'
 
@@ -24,7 +26,7 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'loofah', '~>2.19.1'
 
 # database
-gem 'pg'
+gem 'sqlite3'
 
 # frontend
 gem 'bootstrap', '~> 5.3.0.alpha3'

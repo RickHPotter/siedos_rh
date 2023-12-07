@@ -27,7 +27,7 @@
 
     .d-flex.py-3
       = icon('fa-regular fa-address-book', '2xl', class: 'align-self-center pe-2')
-      %span.display-6 Contacts
+      %span.display-6=I18n.t('activerecord.models.contact.other')
     #contacts
       .row.py-3.border.border-2.border-dark.mx-auto#contacts-list
         - if @employee.contacts.empty?

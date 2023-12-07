@@ -24,7 +24,7 @@ $(document).ready(function() {
 
   toggleNoContactsMessage();
 
-  $('#contacts').on('cocoon:after-insert', function() {
+  $('#contacts').on('cocoon:after-insert cocoon:after-remove', function() {
     toggleNoContactsMessage();
   });
 });

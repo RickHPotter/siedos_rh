@@ -4,8 +4,8 @@ class Employee < ApplicationRecord
   include Filterable
 
   # CONSTANTS
-  MARITAL_STATUSES = [ 'single', 'married', 'widow' ]
-  SEXES = [ 'masculine', 'feminine' ]
+  MARITAL_STATUSES = %w[single married widow]
+  SEXES = %w[masculine feminine]
   CEP = Cep.instance
 
   has_many :contacts, inverse_of: :employee
@@ -19,7 +19,7 @@ class Employee < ApplicationRecord
   validate :cep_validations
 
   validates :id, presence: true, uniqueness: true, format: {
-    with: /\A\d+\z/, message: I18n.t('errors.invalid') 
+    with: /\A\d+\z/, message: I18n.t('errors.invalid')
   }, length: { minimum: 1, maximum: 8 }
 
   validates :full_name, presence: true, length: { in: 8..36 }
@@ -38,16 +38,16 @@ class Employee < ApplicationRecord
   validates :job_role_id, uniqueness: { scope: :workspace_id }
 
   # SEARCH
-  scope :filter_by_id_name, -> (id_name) {
+  scope :filter_by_id_name, lambda { |id_name|
     return unless id_name.present?
 
     id = id_name.to_i
-    id = id > 0 ? "id = #{id} or" : "" 
+    id = id > 0 ? "id = #{id} or" : ''
     where("#{id} lower(full_name) LIKE ?", "%#{id_name.downcase}%")
   }
-  scope :filter_by_sex, -> (sex) { where sex: sex if sex.present? }
-  scope :filter_by_workspace_id, -> (id) { where workspace_id: id if id.present? }
-  scope :filter_by_job_role_id, -> (id) { where job_role_id: id if id.present? }
+  scope :filter_by_sex, ->(sex) { where sex: sex if sex.present? }
+  scope :filter_by_workspace_id, ->(id) { where workspace_id: id if id.present? }
+  scope :filter_by_job_role_id, ->(id) { where job_role_id: id if id.present? }
 
   def marital_status_label
     I18n.t("employee.marital_statuses.#{marital_status}")
@@ -58,14 +58,14 @@ class Employee < ApplicationRecord
   end
 
   private
-  
+
   def minimum_age
     return unless date_of_birth.present?
 
     age = (Time.zone.now - date_of_birth.to_time) / 1.year
-    if age < 14 
-      errors.add(:date_of_birth, I18n.t('errors.too_young'))
-    end
+    return unless age < 14
+
+    errors.add(:date_of_birth, I18n.t('errors.too_young'))
   end
 
   def city_state_validations
@@ -82,4 +82,3 @@ class Employee < ApplicationRecord
     city_state_validations
   end
 end
-

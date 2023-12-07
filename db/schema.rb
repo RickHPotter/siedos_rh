@@ -12,16 +12,13 @@
 
 ActiveRecord::Schema.define(version: 20230705131842) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "contacts", force: :cascade do |t|
     t.string "phone"
     t.string "mobile_phone"
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "employee_id"
+    t.integer "employee_id"
     t.index ["email"], name: "index_contacts_on_email", unique: true
     t.index ["employee_id"], name: "index_contacts_on_employee_id"
   end
@@ -33,8 +30,8 @@ ActiveRecord::Schema.define(version: 20230705131842) do
     t.string "home_state"
     t.string "marital_status"
     t.string "sex"
-    t.bigint "workspace_id"
-    t.bigint "job_role_id"
+    t.integer "workspace_id"
+    t.integer "job_role_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["job_role_id"], name: "index_employees_on_job_role_id"
@@ -53,7 +50,4 @@ ActiveRecord::Schema.define(version: 20230705131842) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "contacts", "employees"
-  add_foreign_key "employees", "job_roles"
-  add_foreign_key "employees", "workspaces"
 end

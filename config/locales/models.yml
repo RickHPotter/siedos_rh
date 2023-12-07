@@ -10,6 +10,9 @@ pt-BR:
       workspace:
         one: 'Lotação'
         other: 'Lotações'
+      contact:
+        one: 'Contato'
+        other: 'Contatos'
     attributes:
       employee:
         id: 'Matrícula'
@@ -64,6 +67,9 @@ en:
       workspace:
         one: 'Workspace'
         other: 'Workspaces'
+      contact:
+        one: 'Contact'
+        other: 'Contacts'
     attributes:
       employee:
         id: 'Id'
